@@ -1,0 +1,16 @@
+extends layout
+block content
+  h1= title
+  br
+  form.navbar-form(role="search")
+    div.form-group
+      input.form-control#input(type='text' placeholder='Enter DNA sequence here...' rows=10)
+      button.btn#search(type='submit') Search
+  br
+  h2 Results
+  table.table#results
+    thead
+      th Organism ID
+      th Organism Description
+      th Sequence Match Location
+    tbody

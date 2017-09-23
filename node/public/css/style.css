@@ -1,0 +1,4 @@
+input.form-control {
+  width: 25vw !important;
+  min-height: 100px;
+}

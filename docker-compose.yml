@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  node:
+    restart: 'always'
+    build: ./node
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+      - .:/node
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+    links:
+      - redis
+    depends_on:
+      - python
+      - redis
+
+  python:
+    restart: 'always'
+    build: ./py
+    volumes:
+      - .:/db/
+    ports:
+     - "5000:5000"
+    expose:
+     - "5000"
+
+  redis:
+    image: "redis:alpine"
+    # expose:
+    #  - "6379"
+    # ports:
+    #  - "6379:6379"
