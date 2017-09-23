@@ -1,3 +1,12 @@
+/**
+ * @file node/public/js/index.js
+ * @author Christopher Oyler <christopher.oyler@gmail.com>
+ * @date 9/23/2017
+ * @desc an extremely simple javascript file for manipulating dom structure -
+ * - and sending requests to the hosting backend
+ */
+
+
 'use strict';
 
 $(document).ready(() => {
@@ -34,9 +43,9 @@ function search(evt){
   const obj = { sequence: seq };
   /*
     In case anyone was wondering why I used a vanilla XMLHttpRequest,
-    there's a fun problem with jQuery not properly passing json data
-    via POST/PUT. I did have it set up as a GET with a query parameter,
-    but that limits your character input to ~2000 characters.
+    there's a fun problem with jQuery not properly passing json data via
+    POST/PUT to a local server. I did have it set up as a GET with a query
+    parameter, but that limits your character input to ~2000 characters.
   */
   const xhr = new XMLHttpRequest();
   xhr.open('POST', '/search');

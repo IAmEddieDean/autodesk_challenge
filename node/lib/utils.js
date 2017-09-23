@@ -1,3 +1,11 @@
+/**
+ * @file node/lib/utils.js
+ * @author Christopher Oyler <christopher.oyler@gmail.com>
+ * @date 9/23/2017
+ * @desc utilities functions for node backend
+ */
+
+
 'use strict';
 
 function safeString(obj) {

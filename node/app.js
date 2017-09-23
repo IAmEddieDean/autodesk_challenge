@@ -1,3 +1,10 @@
+/**
+ * @file node/app.js
+ * @author Christopher Oyler <christopher.oyler@gmail.com>
+ * @date 9/23/2017
+ * @desc startup methods and express app listener application
+ */
+
 'use strict';
 
 const express = require('express');
@@ -19,6 +26,4 @@ app.use(defaultErrHandler);
 
 
 app.listen(PORT);
-console.log(process.env, '***********************************');
-
 console.log(`app listening on port ${PORT}`);

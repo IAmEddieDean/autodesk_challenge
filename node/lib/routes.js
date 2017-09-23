@@ -1,3 +1,10 @@
+/**
+ * @file node/lib/routes.js
+ * @author Christopher Oyler <christopher.oyler@gmail.com>
+ * @date 9/23/2017
+ * @desc routes and business logic for node backend
+ */
+
 'use strict';
 
 const router = require('express').Router();

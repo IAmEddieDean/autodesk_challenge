@@ -24,13 +24,9 @@ services:
     volumes:
       - .:/db/
     ports:
-     - "5000:5000"
+      - "5000:5000"
     expose:
-     - "5000"
+      - "5000"
 
   redis:
     image: "redis:alpine"
-    # expose:
-    #  - "6379"
-    # ports:
-    #  - "6379:6379"
