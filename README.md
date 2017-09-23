@@ -27,7 +27,7 @@ Assuming you have git and docker/compose on your machine -
 
 Clone this repo
 ```sh
-git clone ....
+git clone https://github.com/IAmEddieDean/autodesk_challenge.git
 ```
 Run
 ```sh
