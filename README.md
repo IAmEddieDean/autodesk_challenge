@@ -1,15 +1,15 @@
-                                                                                      
-                                                                                      
+
+
                  // | |                                                               
                 //__| |            __  ___  ___      ___   /  ___      ___     / ___  
                / ___  |   //   / /  / /   //   ) ) //   ) / //___) ) ((   ) ) //\ \   
               //    | |  //   / /  / /   //   / / //   / / //         \ \    //  \ \  
-             //     | | ((___( (  / /   ((___/ / ((___/ / ((____   //   ) ) //    \ \ 
-                                                                                      
-                                                                                      
+             //     | | ((___( (  / /   ((___/ / ((___/ / ((____   //   ) ) //    \ \
+
+
                   //   ) )                                                            
                  //        / __      ___     // //  ___       __      ___      ___    
-                //        //   ) ) //   ) ) // // //___) ) //   ) ) //   ) ) //___) ) 
+                //        //   ) ) //   ) ) // // //___) ) //   ) ) //   ) ) //___) )
                //        //   / / //   / / // // //       //   / / ((___/ / //        
               ((____/ / //   / / ((___( ( // // ((____   //   / /   //__   ((____     
 
@@ -48,8 +48,11 @@ Without pointing out too much in a public readme, there were a couple flaws in t
 * The provided list are all complete genomes, not proteins
 * The above bullet makes it pretty challenging to figure out what you *should* do, and even after a clarification over email, I was still perhaps confused... I guess that's up to you to decide.
 * Hopefully redis will serve the purpose of data retention in this case, as the prompt does mention this is to be treated as a PoC. Besides, I love redis.
-* I did not go through the trouble of managing concurrent requests in python... sorry. I wasn't ignoring the challenge prompt, it simply wasn't necessary (in my humble opinion,) for this first pass. Not only that, I don't know what framework - if any - Autodesk is using in python, and they all do it a bit differently.
+* ~~I did not go through the trouble of managing concurrent requests in python... sorry. I wasn't ignoring the challenge prompt, it simply wasn't necessary (in my humble opinion,) for this first pass. Not only that, I don't know what framework - if any - Autodesk is using in python, and they all do it a bit differently.~~
 
 ### In closing
 Thank you very much for this fun and - for me - unique challenge. I sincerely hope it's up to snuff (enough) to warrant an in-office interview.
 *- Chris*
+
+### Updates!!! Improvements!!!
+I'll be honest with you, I was annoyed that I didn't manage concurrency with the python application. To that end, I did a little reading on gunicorn, which seems to be a very popular way to manage additional workers in the synchronous world of python. You'll now find that the python app has two workers on startup. Not only that, I removed the public port for that container, making it only accessible within the network docker creates.

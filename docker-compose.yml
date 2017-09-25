@@ -4,6 +4,7 @@ services:
   node:
     restart: 'always'
     build: ./node
+    command: node app.js
     volumes:
       - .:/usr/app/
       - /usr/app/node_modules
@@ -21,10 +22,9 @@ services:
   python:
     restart: 'always'
     build: ./py
+    command: /usr/local/bin/gunicorn -w 2 -b :5000 app:app
     volumes:
       - .:/db/
-    ports:
-      - "5000:5000"
     expose:
       - "5000"
 

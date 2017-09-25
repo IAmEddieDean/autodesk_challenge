@@ -8,7 +8,7 @@
 from flask import Flask, request, abort
 from Bio.Seq import Seq
 from Bio import SeqIO
-import os, json
+import os, json, random
 
 reference_organisms = {}
 
@@ -17,7 +17,7 @@ for filename in os.listdir('./db'):
     reference_organisms[rec.id] = rec
 
 print('reference organisms available', reference_organisms.keys())
-
+rando = random.random() * 1000;
 # I feel like I should have left in the code that actually used this Entrez filter
 # c'est la vie... it was working, it was just really slow going
 # entrez_filter = '"Chlorella PBCV-1 virus"[Organism] OR "EhV-86"[Organism] OR "Acanthocystis turfacea Chlorella virus 1"[Organism] OR "Chlorella virus AR158"[Organism] OR "Cafeteria roenbergensis virus BV-PW1"[Organism] OR "Acanthamoeba polyphaga moumouvirus"[Organism] OR "Pithovirus sibericum"[Organism] OR "Megavirus chiliensis"[Organism] OR "Bacillus megaterium"[Organism] OR "Mollivirus sibericum"[Organism]'
@@ -27,7 +27,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     organisms = reference_organisms.keys()
-    obj = {"msg": "these are the organisms available", "organisms": json.dumps(organisms)}
+    obj = {"msg": "these are the organisms available", "organisms": json.dumps(organisms), "random": rando}
     return json.dumps(obj)
 
 @app.route('/', methods=['POST'])
